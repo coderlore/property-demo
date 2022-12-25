@@ -10,6 +10,7 @@ const Result:React.FC<Props> = ({result}) => {
     return (
         <div className='result'>
             {result.name}
+            <img src={result.picture} />
         </div>
     )
 }

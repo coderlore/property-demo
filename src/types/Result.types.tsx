@@ -1,4 +1,5 @@
 export type ResultType = {
     name: String;
-    children?: JSX.Element|JSX.Element[]
+    picture: string;
+    children?: JSX.Element|JSX.Element[];
 }

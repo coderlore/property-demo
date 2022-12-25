@@ -20,13 +20,14 @@ function App() {
 
   interface Result {
     name: String;
+    picture: string;
     children?: JSX.Element|JSX.Element[]
   }
 
   useEffect(() => {
-    fetch('http://localhost:8000/listing?_sort=name&_order=asc')
+    fetch('http://localhost:8000/listing?_sort=name&_order=asc?_page=1&_limit=12')
     .then(response => response.json())
-    .then(res => setResult(res.slice(0,10)))
+    .then(res => setResult(res))
     .catch(error => setError(error))
   }, [])
   // const [result, setResult] = useState<resultProps[]>([])
