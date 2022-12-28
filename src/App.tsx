@@ -20,7 +20,7 @@ function App() {
   const [error, setError] = useState({})
   const [pageCount, setpageCount] = useState(0)
 
-  const listingPerPage:number = 5
+  const listingPerPage:number = 10
   const pagesVisited = pageCount * listingPerPage
 
   const displayListings = results
@@ -28,6 +28,7 @@ function App() {
     .map(result => {
       return(
         <div className='result'>
+            <div>Total Listings Found: {results.length}</div>
             <Result result={result}/>
         </div>
       )
@@ -56,7 +57,7 @@ function App() {
   }
 
   useEffect(() => {
-    fetch('http://localhost:8000/listing?_sort=name&_order=asc?_page=1&_limit=12')
+    fetch('http://localhost:8000/listing?_sort=name&_order=asc')
     .then(response => response.json())
     .then(res => setResult(res))
     .catch(error => setError(error))
@@ -110,6 +111,7 @@ function App() {
         pageCount={pageNumber}
         onPageChange={changePage}
         containerClassName="paginationBtn"
+        activeClassName='paginationActive'
       />
       <div>
         {displayListings}
