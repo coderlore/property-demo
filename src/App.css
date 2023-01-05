@@ -1,5 +1,9 @@
 .App {
+  display: flex;
+  align-items: center;
   text-align: center;
+  flex-direction: column;
+  width: 100vw;
 }
 
 .paginationBtn {
@@ -24,7 +28,27 @@
   background-color: blue;
 }
 
-/* .paginationActive {
+.paginationActive a {
   color: white;
   background-color: blue;
-} */
+}
+
+.result {
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  padding: 5px;
+  margin: 5px 0px;
+}
+
+.resultName, .resultImg, .resultUnits, .resultSqft, .resultRange {
+  padding: 0px 5px;
+}
+
+.resultName {
+  font-size: 1.25rem;
+}
+
+.resultUnits, .resultSqft, .resultRange {
+  font-size: 0.8rem;
+}
