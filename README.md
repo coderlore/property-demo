@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# Affording Housing Listing
+A single page application using React and Typescript to display the listing of affordable properties.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screenshot of website](https://ibb.co/162cNKH)
 
-## Available Scripts
+## How It's Made:
 
-In the project directory, you can run:
+**Tech used:** React and Typescript
 
-### `npm start`
+Create React App with Typescript was used to setup the project. The dataset of the listings were provided as a json file and the json-loader package was installed. This allowed me to create a demo REST API. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Future Optimizations
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Filtering the dataset
+- Filter by property name. I have the search bar component setup, but need to figure out a way to get the data back to the parent. I also would have liked for the user's input to be case insensitive. 
+- Filter by unit amentiy. This would have required the manipultion of the current result by applying filters, then return the filtered result.
+- Filter by min and max occupancy range. Again, this would have required the manipulation of the current result by applying filters, then return the filtered result. 
 
-### `npm test`
+Responsive Design and Accessibility
+- Create a web page that adjusts for different screensizes. 
+- Follow standards and best practices. Some things to check are text size, color pallete used, etc.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Lessons Learned:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. The main thing I learned was to keep things simple. I initially started building the backend thinking I would follow the MVC architechture. While that would have worked, installing and untilizing json server made things a lot easier. 
+2. Going through the json server doc, I found there were different ways to query the data and found one that could sort the data alphabetically. 
+3. I learned how to use react pagination library to display the property listings and by calculating the pages, the correct amount of pages were listed.
