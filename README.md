@@ -1,7 +1,7 @@
 # Affording Housing Listing
 A single page application using React and Typescript to display the listing of affordable properties.
 
-![Screenshot of website](https://ibb.co/162cNKH)
+![Screenshot of website](https://res.cloudinary.com/dyz5kerw5/image/upload/v1673041002/Screen_Shot_2023-01-06_at_10.11.02_AM_q2csfi.png)
 
 ## How It's Made:
 
