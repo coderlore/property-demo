@@ -7,7 +7,7 @@ A single page application using React and Typescript to display the listing of a
 
 **Tech used:** React and Typescript
 
-Create React App with Typescript was used to setup the project. The dataset of the listings were provided as a json file and the json-loader package was installed. This allowed me to create a demo REST API. 
+Create React App with Typescript was used to setup the project. The dataset of the listings were provided as a json file and the json-loader package was installed. This allowed me to create a demo REST API. The react pagination library was used to display the property listings and divided the listings into multiple pages. 
 
 ## Future Optimizations
 
@@ -29,3 +29,4 @@ Miscellaneous
 1. The main thing I learned was to keep things simple. I initially started building the backend thinking I would follow the MVC architechture. While that would have worked, installing and untilizing json server made things a lot easier. 
 2. Going through the json server doc, I found there were different ways to query the data and found one that could sort the data alphabetically. 
 3. I learned how to use react pagination library to display the property listings and by calculating the pages, the correct amount of pages were listed.
+4. Using Typescript made me cognizant of what types of data are being passed.
