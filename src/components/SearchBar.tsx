@@ -31,7 +31,7 @@ const SearchBar:React.FC<Props> = ({placeholder}) => {
     <div className="search">
       <form className='searchInputs'>
           <input type="text" placeholder={placeholder} className="searchWord" onChange={(e) => {setValue(e.target.value)}} ></input>
-          <button type="button" onClick={handleFilter}>Search</button>
+          <button type="button" onClick={handleFilter} className="searchBtn">Search</button>
       </form>
     </div>
   )

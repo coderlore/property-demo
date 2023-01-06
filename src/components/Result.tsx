@@ -22,22 +22,28 @@ const Result:React.FC<Props> = ({result}) => {
     // }
 
     return (
-        <div className='result' >
+        <div className='result-col' >
             {/* <div className="search">
                 <form className='searchInputs'>
                     <input type="text" placeholder={placeholder} className="searchWord" onChange={handleFilter}></input>
                     <button type="submit">Search</button>
                 </form>
             </div> */}
-            <div className='resultName'>
-                {result.name}
+            <div className='result-row'>
+                <div className='resultName'>{result.name}</div>
             </div>
-            <div className='resultImg'>
-                <img src={result.picture} />
+            <div className='result-row'>
+                <div className='resultImg'><img src={result.picture} alt="Property Img"/></div>
             </div>
-            <div className='resultUnits'>Unit Type {result.units.map(unit => <div>{unit.type}</div>)}</div>
-            <div className='resultSqft'>Average Square Footage {result.units.map(unit => <div>{unit.sqft}</div>)}</div>
-            <div className='resultRange'>Range {result.units.map(unit => <div>{unit.minOccupancy}-{unit.maxOccupancy} people</div>)}</div>
+            <div className='result-row'>
+                <div className='resultUnits'>Unit Type {result.units.map(unit => <div>{unit.type}</div>)}</div>
+            </div>
+            <div className='result-row'>
+                <div className='resultSqft'>Average Sqft {result.units.map(unit => <div>{unit.sqft}</div>)}</div>
+            </div>
+            <div className='result-row'>
+                <div className='resultRange'>Range {result.units.map(unit => <div>{unit.minOccupancy}-{unit.maxOccupancy} people</div>)}</div>
+            </div>
         </div>
     )
 }

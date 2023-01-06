@@ -65,14 +65,19 @@ function App() {
 
   return (
     <div className="App">
-      <Header title='Property Listings' />
-      <SearchBar placeholder='Enter here'/>
-      <div>
-        Total Listings Found: {results.length}  
-      </div>   
+      <div className='heading'>
+        <Header title='Property Listings' />
+        <SearchBar placeholder='Enter here'/>
+        <div className='total'>
+          Total Listings Found: {results.length}  
+        </div>  
+        <div className='per-page'>
+          Listings Per Page: {listingPerPage}  
+        </div>  
+      </div>
       <ReactPaginate 
-        previousLabel={'Previous'}
-        nextLabel={'Next'}
+        previousLabel={'<'}
+        nextLabel={'>'}
         pageCount={pageNumber}
         onPageChange={changePage}
         containerClassName='paginationBtn'
