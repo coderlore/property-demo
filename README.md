@@ -20,6 +20,10 @@ Responsive Design and Accessibility
 - Create a web page that adjusts for different screensizes. 
 - Follow standards and best practices. Some things to check are text size, color pallete used, etc.
 
+Miscellaneous
+- Add a nav bar and footer.
+- Add additional pages such as a login, about page, etc.
+
 ## Lessons Learned:
 
 1. The main thing I learned was to keep things simple. I initially started building the backend thinking I would follow the MVC architechture. While that would have worked, installing and untilizing json server made things a lot easier. 
