@@ -1,5 +1,5 @@
 export type ResultType = {
-    id: String;
+    id: string;
     name: String;
     picture: string;
     units: [

@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 
 
 interface Props {
-  // result: ResultType;
   placeholder: string;
 }
 
@@ -13,11 +12,8 @@ let data
 
 const SearchBar:React.FC<Props> = ({placeholder}) => {
   const [filteredData, setFilteredData] = useState([]);
-  // const [wordEntered, setWordEntered] = useState("");
   const [value, setValue] = useState("")
   const handleFilter = async (event:any) => {
-    // const searchWord = value;
-    // setWordEntered(searchWord);
     const res = await fetch(`http://localhost:8000/listing?name=${value}`)
     data = await res.json()
     console.log(data)
@@ -38,8 +34,3 @@ const SearchBar:React.FC<Props> = ({placeholder}) => {
 }
 
 export default SearchBar
-
-// export {
-//   SearchBar,
-//   data,
-// }

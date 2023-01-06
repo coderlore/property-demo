@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate'
 import './App.css';
-import Content from './Content'
-import Header from './Header'
+import Header from './components/Header'
 import { useState, useEffect } from "react";
 import { json } from 'stream/consumers';
 import Loader from './components/Loader'
@@ -21,15 +20,15 @@ function App() {
   const [error, setError] = useState({})
   const [pageCount, setpageCount] = useState(0)
 
-  const listingPerPage:number = 5
+  const listingPerPage:number = 10
   const pagesVisited = pageCount * listingPerPage
 
   const displayListings = results
     .slice(pagesVisited, pagesVisited + listingPerPage)
     .map(result => {
       return(
-        <div className='resultList'>
-          <Result result={result} key={result.id}/>
+        <div className='resultList' key={result.id}>
+          <Result result={result} key={result.id}/> 
         </div>
       )
     })
@@ -71,9 +70,6 @@ function App() {
         <div className='total'>
           Total Listings Found: {results.length}  
         </div>  
-        <div className='per-page'>
-          Listings Per Page: {listingPerPage}  
-        </div>  
       </div>
       <ReactPaginate 
         previousLabel={'<'}
@@ -83,6 +79,11 @@ function App() {
         containerClassName='paginationBtn'
         activeClassName='paginationActive'
       />
+      {results.length > 0 ?
+        <div className='per-page'>
+          Listings Per Page: {listingPerPage}  
+        </div>  
+        : (<Loader />)}
       <div>
         {displayListings}
       </div>   

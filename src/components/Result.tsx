@@ -7,28 +7,10 @@ interface Props {
     result: ResultType;
 }
 
-//Declare a functional component type
 const Result:React.FC<Props> = ({result}) => {
-    // const [filteredData, setFilteredData] = useState([]);
-    // const [wordEntered, setWordEntered] = useState("");
-    // const handleFilter = (event:any) => {
-    //     const searchWord = event.target.value;
-    //     setWordEntered(searchWord);
-    //     let filterName = new Array(result)
-    //     const newFilter = filterName.filter((value) => {
-    //       return value.name.toLowerCase().includes(searchWord.toLowerCase());
-    //     });
-    //     console.log(filterName)
-    // }
 
     return (
-        <div className='result-col' >
-            {/* <div className="search">
-                <form className='searchInputs'>
-                    <input type="text" placeholder={placeholder} className="searchWord" onChange={handleFilter}></input>
-                    <button type="submit">Search</button>
-                </form>
-            </div> */}
+        <div className='result-col' key={result.id} >
             <div className='result-row'>
                 <div className='resultName'>{result.name}</div>
             </div>
