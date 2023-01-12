@@ -6,21 +6,23 @@ import { useState, useEffect } from "react";
 
 interface Props {
   placeholder: string;
+  handleFilter: any;
+  setValue: any;
 }
 
-let data 
+// let data 
 
-const SearchBar:React.FC<Props> = ({placeholder}) => {
-  const [filteredData, setFilteredData] = useState([]);
-  const [value, setValue] = useState("")
-  const handleFilter = async (event:any) => {
-    const res = await fetch(`http://localhost:8000/listing?name=${value}`)
-    data = await res.json()
-    console.log(data)
-    // const newFilter = data.filter((value:any) => {
-      // return value.name.toLowerCase().includes(searchWord.toLowerCase());
-    // });
-  }
+const SearchBar:React.FC<Props> = ({placeholder, handleFilter, setValue}) => {
+  // const [filteredData, setFilteredData] = useState([]);
+  // const [value, setValue] = useState("")
+  // const handleFilter = async (event:any) => {
+  //   const res = await fetch(`http://localhost:8000/listing?name=${value}`)
+  //   data = await res.json()
+  //   console.log(data)
+  //   // const newFilter = data.filter((value:any) => {
+  //     // return value.name.toLowerCase().includes(searchWord.toLowerCase());
+  //   // });
+  // }
   
 
   return (

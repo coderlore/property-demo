@@ -20,6 +20,19 @@ function App() {
   const [error, setError] = useState({})
   const [pageCount, setpageCount] = useState(0)
 
+  const [filteredData, setFilteredData] = useState([]);
+  const [value, setValue] = useState("")
+  const handleFilter = async (event:any) => {
+    const res = await fetch(`http://localhost:8000/listing?name=${value}`)
+    const filteredData = await res.json()
+    setResult(filteredData)
+    // console.log(filteredData)
+    // const newFilter = data.filter((value:any) => {
+      // return value.name.toLowerCase().includes(searchWord.toLowerCase());
+    // });
+  }
+
+  //Pagination 
   const listingPerPage:number = 10
   const pagesVisited = pageCount * listingPerPage
 
@@ -66,7 +79,7 @@ function App() {
     <div className="App">
       <div className='heading'>
         <Header title='Property Listings' />
-        <SearchBar placeholder='Enter here'/>
+        <SearchBar placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
         <div className='total'>
           Total Listings Found: {results.length}  
         </div>  
