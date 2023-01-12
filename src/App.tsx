@@ -7,6 +7,7 @@ import { json } from 'stream/consumers';
 import Loader from './components/Loader'
 import Result from './components/Result'
 import SearchBar from './components/SearchBar'
+import { isFloat32Array } from 'util/types';
 
 type resultProps = {
   id: any;
@@ -23,13 +24,15 @@ function App() {
   const [filteredData, setFilteredData] = useState([]);
   const [value, setValue] = useState("")
   const handleFilter = async (event:any) => {
-    const res = await fetch(`http://localhost:8000/listing?name=${value}`)
+    let propertyName = capFirstLetter(value)
+    const res = await fetch(`http://localhost:8000/listing?name=${propertyName}`)
     const filteredData = await res.json()
     setResult(filteredData)
-    // console.log(filteredData)
-    // const newFilter = data.filter((value:any) => {
-      // return value.name.toLowerCase().includes(searchWord.toLowerCase());
-    // });
+  }
+
+  //First char uppercase 
+  function capFirstLetter(str:string){
+    return str.charAt(0).toUpperCase() + str.slice(1)
   }
 
   //Pagination 
@@ -94,7 +97,7 @@ function App() {
       />
       {results.length > 0 ?
         <div className='per-page'>
-          Listings Per Page: {listingPerPage}  
+          
         </div>  
         : (<Loader />)}
       <div>
