@@ -7,6 +7,7 @@ import { json } from 'stream/consumers';
 import Loader from './components/Loader'
 import Result from './components/Result'
 import SearchBar from './components/SearchBar'
+import Filters from './components/Filters'
 import { isFloat32Array } from 'util/types';
 
 type resultProps = {
@@ -83,6 +84,7 @@ function App() {
       <div className='heading'>
         <Header title='Property Listings' />
         <SearchBar placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
+        <Filters placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
         <div className='total'>
           Total Listings Found: {results.length}  
         </div>  
