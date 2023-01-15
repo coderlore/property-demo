@@ -9,6 +9,9 @@ import Result from './components/Result'
 import SearchBar from './components/SearchBar'
 import Filters from './components/Filters'
 import { isFloat32Array } from 'util/types';
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
 
 type resultProps = {
   id: any;
@@ -22,7 +25,7 @@ function App() {
   const [error, setError] = useState({})
   const [pageCount, setpageCount] = useState(0)
 
-  const [filteredData, setFilteredData] = useState([]);
+  // const [filteredData, setFilteredData] = useState([]);
   const [value, setValue] = useState("")
   const handleFilter = async (event:any) => {
     let propertyName = capFirstLetter(value)
@@ -34,6 +37,21 @@ function App() {
   //First char uppercase 
   function capFirstLetter(str:string){
     return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+
+  //Function to pass filtered value
+  let [filterTextValue, updateFilterText] = useState('all')
+
+  let filteredPropertyList = results.filter(result => {
+    if (result.units.amenities === "pet friendly"){
+      console.log(result)
+    } else {
+      // console.log(result)
+    }
+  })
+
+  function onFilterValueSelected(filterValue:string){
+    updateFilterText(filterValue)
   }
 
   //Pagination 
@@ -82,9 +100,18 @@ function App() {
   return (
     <div className="App">
       <div className='heading'>
+        <Navbar bg="dark" variant="dark" sticky="top">
+          <Container>
+            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Nav>
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#about">About</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
         <Header title='Property Listings' />
         <SearchBar placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
-        <Filters placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
+        <Filters placeholder='Enter here' handleFilter={handleFilter} setResult={setResult} filterValueSelected={onFilterValueSelected}/>
         <div className='total'>
           Total Listings Found: {results.length}  
         </div>  
