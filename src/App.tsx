@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate'
+import Pagination from 'react-bootstrap/Pagination'
 import './App.css';
 import Header from './components/Header'
 import { useState, useEffect } from "react";
@@ -12,12 +13,21 @@ import { isFloat32Array } from 'util/types';
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import { Card } from 'react-bootstrap';
 
 type resultProps = {
   id: any;
   name: String;
   picture: any;
-  units: any;
+  units: [
+    {
+        type: String;
+        minOccupancy: String,
+        maxOccupancy: String,
+        sqft: String,
+        amenities: []
+    }
+  ]
 }
 
 function App() {
@@ -43,11 +53,13 @@ function App() {
   let [filterTextValue, updateFilterText] = useState('all')
 
   let filteredPropertyList = results.filter(result => {
-    if (result.units.amenities === "pet friendly"){
-      console.log(result)
-    } else {
-      // console.log(result)
-    }
+    let newResults = result.units.map((unit:any) => {
+      if (unit.amenities.includes(filterTextValue)){
+        return result
+      }
+    })
+    // setResult(filteredPropertyList)
+    // console.log(filteredPropertyList)
   })
 
   function onFilterValueSelected(filterValue:string){
@@ -63,7 +75,7 @@ function App() {
     .map(result => {
       return(
         <div className='resultList' key={result.id}>
-          <Result result={result} key={result.id}/> 
+          <Result result={result} /> 
         </div>
       )
     })
@@ -102,7 +114,7 @@ function App() {
       <div className='heading'>
         <Navbar bg="dark" variant="dark" sticky="top">
           <Container>
-            <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <Navbar.Brand href="#home">Affordable Properties</Navbar.Brand>
             <Nav>
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#about">About</Nav.Link>
@@ -110,20 +122,22 @@ function App() {
           </Container>
         </Navbar>
         <Header title='Property Listings' />
-        <SearchBar placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
+      </div>
+      <SearchBar placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
         <Filters placeholder='Enter here' handleFilter={handleFilter} setResult={setResult} filterValueSelected={onFilterValueSelected}/>
         <div className='total'>
           Total Listings Found: {results.length}  
         </div>  
-      </div>
-      <ReactPaginate 
-        previousLabel={'<'}
-        nextLabel={'>'}
-        pageCount={pageNumber}
-        onPageChange={changePage}
-        containerClassName='paginationBtn'
-        activeClassName='paginationActive'
-      />
+      <Pagination size='sm'>
+        <ReactPaginate 
+          previousLabel={'<'}
+          nextLabel={'>'}
+          pageCount={pageNumber}
+          onPageChange={changePage}
+          containerClassName='paginationBtn'
+          activeClassName='paginationActive'
+        />
+      </Pagination>
       {results.length > 0 ?
         <div className='per-page'>
           
@@ -131,7 +145,7 @@ function App() {
         : (<Loader />)}
       <div>
         {displayListings}
-      </div>   
+      </div>
     </div>
   );
 }

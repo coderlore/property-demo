@@ -1,8 +1,6 @@
 import { type } from 'os';
 import React from 'react'
-import {ResultType} from '../types/Result.types'
-import { useState, useEffect } from "react";
-import Button from 'react-bootstrap/Button'
+import { Button, Form, InputGroup } from 'react-bootstrap'
 
 
 interface Props {
@@ -11,17 +9,21 @@ interface Props {
   setValue: any;
 }
 
-// let data 
-
 const SearchBar:React.FC<Props> = ({placeholder, handleFilter, setValue}) => {
 
   return (
-    <div className="search">
-      <form className='searchInputs'>
-          <input type="text" placeholder={placeholder} className="searchWord" onChange={(e) => {setValue(e.target.value)}} ></input>
-          {/* <button type="button" onClick={handleFilter} className="searchBtn">Search</button> */}
-          <Button variant="dark" size="sm" >Search</Button>
-      </form>
+    <div className='mt-3'>
+      <InputGroup className="mb-3">
+        <Form.Control
+          placeholder="Search for property"
+          aria-label="Property name"
+          aria-describedby="property-name-search"
+          onChange={(e) => {setValue(e.target.value)}}
+        />
+        <Button variant="dark" id="property-name-search" onClick={handleFilter} >
+          Search
+        </Button>
+      </InputGroup>
     </div>
   )
 }

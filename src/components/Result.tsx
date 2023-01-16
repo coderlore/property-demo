@@ -11,7 +11,7 @@ const Result:React.FC<Props> = ({result}) => {
 
     return (
         <div className='result-col' key={result.id} >
-            <div className='result-row'>
+            <div className='result-row' >
                 <div className='resultName'>{result.name}</div>
             </div>
             <div className='result-row'>

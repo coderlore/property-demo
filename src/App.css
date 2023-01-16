@@ -10,7 +10,7 @@
 .heading {
   background-color: rgb(93, 115, 230);
   width: 100%;
-  height: 250px;
+  /* height: 250px; */
 }
 
 .header {
@@ -30,7 +30,7 @@
   width: 25%;
 }
 
-.searchBtn {
+/* .searchBtn {
   border-radius: 5px;
   border: 2px solid rgb(33, 38, 94);
   height: 35px;
@@ -40,7 +40,7 @@
 
 .searchBtn:hover {
   cursor: pointer;
-}
+} */
 
 .total {
   color: white;
@@ -48,8 +48,8 @@
 }
 
 .paginationBtn {
-  width: 80%;
-  height: 40px;
+  /* width: 80%;
+  height: 40px; */
   list-style: none;
   display: flex;
   justify-content: center;
