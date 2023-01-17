@@ -9,11 +9,9 @@ import Loader from './components/Loader'
 import Result from './components/Result'
 import SearchBar from './components/SearchBar'
 import Filters from './components/Filters'
-import { isFloat32Array } from 'util/types';
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
-import { Card } from 'react-bootstrap';
 
 type resultProps = {
   id: any;
@@ -121,23 +119,21 @@ function App() {
             </Nav>
           </Container>
         </Navbar>
-        <Header title='Property Listings' />
+        <Header title='Affordable housing' />
       </div>
       <SearchBar placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
-        <Filters placeholder='Enter here' handleFilter={handleFilter} setResult={setResult} filterValueSelected={onFilterValueSelected}/>
-        <div className='total'>
+      <Filters placeholder='Enter here' handleFilter={handleFilter} setResult={setResult} filterValueSelected={onFilterValueSelected}/>
+        <div className='total m-3'>
           Total Listings Found: {results.length}  
         </div>  
-      <Pagination size='sm'>
-        <ReactPaginate 
-          previousLabel={'<'}
-          nextLabel={'>'}
-          pageCount={pageNumber}
-          onPageChange={changePage}
-          containerClassName='paginationBtn'
-          activeClassName='paginationActive'
-        />
-      </Pagination>
+      <ReactPaginate 
+        previousLabel={'<'}
+        nextLabel={'>'}
+        pageCount={pageNumber}
+        onPageChange={changePage}
+        containerClassName='paginationBtn'
+        activeClassName='paginationActive'
+      />
       {results.length > 0 ?
         <div className='per-page'>
           

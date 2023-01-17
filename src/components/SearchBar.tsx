@@ -1,6 +1,6 @@
 import { type } from 'os';
 import React from 'react'
-import { Button, Form, InputGroup } from 'react-bootstrap'
+import { Button, Form, InputGroup, Row, Col } from 'react-bootstrap'
 
 
 interface Props {
@@ -12,18 +12,21 @@ interface Props {
 const SearchBar:React.FC<Props> = ({placeholder, handleFilter, setValue}) => {
 
   return (
-    <div className='mt-3'>
-      <InputGroup className="mb-3">
+    <div className='m-3 w-100'>
+      <InputGroup className="mb-3 d-flex justify-content-center">
         <Form.Control
           placeholder="Search for property"
           aria-label="Property name"
           aria-describedby="property-name-search"
           onChange={(e) => {setValue(e.target.value)}}
+          size='lg'
+          id='form-input'
         />
-        <Button variant="dark" id="property-name-search" onClick={handleFilter} >
+        <Button variant="primary" id="property-name-search" onClick={handleFilter} >
           Search
         </Button>
-      </InputGroup>
+    </InputGroup>
+      
     </div>
   )
 }
