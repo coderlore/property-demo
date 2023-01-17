@@ -124,7 +124,7 @@ function App() {
       <SearchBar placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
       <Filters placeholder='Enter here' handleFilter={handleFilter} setResult={setResult} filterValueSelected={onFilterValueSelected}/>
         <div className='total m-3'>
-          Total Listings Found: {results.length}  
+        {results.length} listings found
         </div>  
       <ReactPaginate 
         previousLabel={'<'}

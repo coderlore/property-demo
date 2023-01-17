@@ -1,6 +1,6 @@
 import { type } from 'os';
 import React from 'react'
-import { Button, Form, InputGroup, Row, Col } from 'react-bootstrap'
+import { Button, Form, InputGroup } from 'react-bootstrap'
 
 
 interface Props {
