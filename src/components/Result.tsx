@@ -2,14 +2,17 @@ import { type } from 'os';
 import React from 'react'
 import { useState, useEffect } from "react";
 import {ResultType} from '../types/Result.types'
-import { Card, ListGroup } from 'react-bootstrap'
+import { Card, ListGroup, Modal, Button } from 'react-bootstrap'
 
 interface Props {
     result: ResultType;
 }
 
 const Result:React.FC<Props> = ({result}) => {
-
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    
     return (
         // <div className='result-col' key={result.id} >
         //     <div className='result-row' >
@@ -34,12 +37,33 @@ const Result:React.FC<Props> = ({result}) => {
                 <Card.Title>{result.name}</Card.Title>
                 <Card.Text>Lorem ipsum dolor sit amet.</Card.Text>
             </Card.Body>
-            <ListGroup horizontal className='group-listings'>
-                <ListGroup.Item>Unit Type{result.units.map(unit => <div>{unit.type}</div>)}</ListGroup.Item>
-                <ListGroup.Item>Sq Ft{result.units.map(unit => <div>{unit.sqft}</div>)}</ListGroup.Item>
-                <ListGroup.Item>Occupancy{result.units.map(unit => <div>{unit.minOccupancy}-{unit.maxOccupancy} people</div>)}</ListGroup.Item>
-                {/* <ListGroup.Item>Amenities{result.units.map(unit => <div>{unit.amenities}</div>)}</ListGroup.Item> */}
-            </ListGroup>
+            <Button variant="primary" onClick={handleShow}>
+                Read more
+            </Button>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal title</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <ListGroup horizontal className='group-listings'>
+                        <ListGroup.Item>Unit Type{result.units.map(unit => <div>{unit.type}</div>)}</ListGroup.Item>
+                        <ListGroup.Item>Sq Ft{result.units.map(unit => <div>{unit.sqft}</div>)}</ListGroup.Item>
+                        <ListGroup.Item>Occupancy{result.units.map(unit => <div>{unit.minOccupancy}-{unit.maxOccupancy}</div>)}</ListGroup.Item>
+                        <ListGroup.Item>Amenities{result.units.map(unit => <div>{unit.amenities}</div>)}</ListGroup.Item>
+                    </ListGroup>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            
         </Card>
     )
 }
