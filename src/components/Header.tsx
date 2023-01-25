@@ -4,7 +4,7 @@ export interface Props {
 
 const Header = (props: Props) => {
     return (
-        <header className="container-fluid justify-content-start">
+        <header className="d-flex flex-column justify-content-center align-items-center">
             <h1 className="header mt-5 mx-5 d-flex text-start" >
                 {props.title}
             </h1>

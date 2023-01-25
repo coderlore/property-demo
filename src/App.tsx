@@ -119,7 +119,7 @@ function App() {
             </Nav>
           </Container>
         </Navbar>
-        <Header title='Affordable housing' />
+        <Header title='Affordable Housing' />
       </div>
       <SearchBar placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
       <Filters placeholder='Enter here' handleFilter={handleFilter} setResult={setResult} filterValueSelected={onFilterValueSelected}/>
