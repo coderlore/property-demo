@@ -47,7 +47,7 @@ const Result:React.FC<Props> = ({result}) => {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
+                    <Modal.Title>{result.name} available units</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <ListGroup horizontal className='group-listings'>

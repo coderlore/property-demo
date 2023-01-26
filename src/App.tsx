@@ -112,7 +112,7 @@ function App() {
       <div className='heading'>
         <Navbar bg="dark" variant="dark" sticky="top">
           <Container>
-            <Navbar.Brand href="#home">Affordable Properties</Navbar.Brand>
+            <Navbar.Brand href="#home">Hunter</Navbar.Brand>
             <Nav>
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#about">About</Nav.Link>
@@ -122,7 +122,7 @@ function App() {
         <Header title='Affordable Housing' />
       </div>
       <SearchBar placeholder='Enter here' handleFilter={handleFilter} setValue={setValue}/>
-      <Filters placeholder='Enter here' handleFilter={handleFilter} setResult={setResult} filterValueSelected={onFilterValueSelected}/>
+      {/* <Filters placeholder='Enter here' handleFilter={handleFilter} setResult={setResult} filterValueSelected={onFilterValueSelected}/> */}
         <div className='total m-3'>
         {results.length} listings found
         </div>  
